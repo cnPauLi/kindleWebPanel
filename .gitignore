@@ -1,0 +1,35 @@
+# Android / Gradle
+*.iml
+.gradle
+/build
+/app/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# IDE - IntelliJ / Android Studio
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/.idea/
+*.hprof
+
+# Build outputs (APK / AAB) —— APK 作为 Release 发布物，不直接进入代码库
+*.apk
+*.aab
+*.ap_
+*.dex
+/output.json
+
+# 签名文件（切勿提交到仓库）
+*.jks
+*.keystore
+keystore.properties
+
+# OS
+.DS_Store
+Thumbs.db

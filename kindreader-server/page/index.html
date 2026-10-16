@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>KindReader 测试页</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: #fff;
+    color: #000;
+    font-size: 24px;
+    line-height: 1.8;
+    padding: 20px;
+    /* 墨水屏建议：纯黑字配纯白底，避免灰阶抗锯齿模糊 */
+    -webkit-font-smoothing: none;
+}
+h2 { margin-bottom: 16px; font-size: 28px; }
+h3 { margin: 20px 0 10px; font-size: 24px; }
+p  { margin-bottom: 12px; }
+hr { border: none; border-top: 2px solid #000; margin: 20px 0; }
+.box {
+    border: 2px solid #000;
+    padding: 12px;
+    margin: 12px 0;
+    font-size: 20px;
+    word-break: break-all;
+}
+.btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    margin: 16px 0;
+    font-size: 24px;
+    color: #000;
+    background: #fff;
+    border: 3px solid #000;
+    text-align: center;
+    cursor: pointer;
+}
+.btn:active { background: #000; color: #fff; }
+</style>
+</head>
+<body>
+
+<h2>KindReader 测试页</h2>
+
+<p>这是服务端下发的内容与布局。修改服务器页面即可变更排版，<strong>无需重新打包 App</strong>。</p>
+
+<div class="box">
+    <div>页面加载时间：<br><strong id="loadTime">--</strong></div>
+</div>
+
+<div class="box">
+    <div>当前完整地址：<br><strong id="fullUrl">--</strong></div>
+</div>
+
+<div class="box">
+    <div>URL 参数回显：<br><strong id="queryStr">（无）</strong></div>
+</div>
+
+<h3>交互测试</h3>
+<button class="btn" onclick="onTapBtn()">点我（JS 是否启用）</button>
+<div class="box" id="jsResult">点击上面的按钮测试 JavaScript 是否正常工作。</div>
+
+<hr>
+
+<p>墨水屏低内存 WebView 壳测试页</p>
+<p style="font-size:20px;color:#000;">
+    💡 提示：快速连点屏幕左上角 5 次，可弹出「设置请求地址」对话框。
+</p>
+
+<script>
+    // 页面加载时间
+    document.getElementById('loadTime').textContent = new Date().toLocaleString();
+
+    // 当前完整地址
+    document.getElementById('fullUrl').textContent = location.href;
+
+    // URL 参数回显
+    var qs = location.search;
+    document.getElementById('queryStr').textContent = qs ? qs : '（无）';
+
+    // 按钮点击测试
+    var tapCount = 0;
+    function onTapBtn() {
+        tapCount++;
+        document.getElementById('jsResult').textContent =
+            '✅ JavaScript 正常工作，已点击 ' + tapCount + ' 次';
+    }
+</script>
+
+</body>
+</html>
